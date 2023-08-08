@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">ElectriccarApp</string>
+
+    <string-array name="cidades">
+        <item>Campina Grande</item>
+        <item>João Pessoa</item>
+        <item>Lagoa Seca</item>
+        <item>Queimadas</item>
+
+    </string-array>
 </resources>

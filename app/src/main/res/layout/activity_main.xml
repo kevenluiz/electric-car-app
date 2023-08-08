@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-
+    tools:context=".presentacion.MainActivity">
     <TextView
         android:id="@+id/Titulo"
         android:layout_width="wrap_content"
@@ -17,7 +15,6 @@
         android:text="Electric Car"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
-
     <TextView
         android:id="@+id/tab_carros"
         android:layout_width="wrap_content"
@@ -27,7 +24,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/Titulo"
         android:textStyle="bold" />
-
     <TextView
         android:id="@+id/tab_favoritos"
         android:layout_width="wrap_content"
@@ -37,17 +33,15 @@
         app:layout_constraintTop_toTopOf="@id/tab_carros"
         android:layout_marginLeft="200dp"
         android:textStyle="bold" />
-
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="165dp"
         android:layout_height="152dp"
-        android:layout_marginLeft="44dp"
+        android:layout_marginStart="16dp"
         app:layout_constraintLeft_toLeftOf="@id/Titulo"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tab_carros"
         app:srcCompat="@mipmap/ic_launcher_foreground" />
-
     <TextView
         android:id="@+id/preco"
         android:layout_width="wrap_content"
@@ -57,7 +51,6 @@
         android:text="PREÇO:"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageView" />
-
     <TextView
         android:id="@+id/preco_value"
         android:layout_width="wrap_content"
@@ -67,10 +60,6 @@
         android:text="250.000,00 R$"
         app:layout_constraintTop_toBottomOf="@id/imageView"
         app:layout_constraintStart_toEndOf="@id/preco" />
-
-
-
-
     <TextView
         android:id="@+id/bateria"
         android:layout_width="wrap_content"
@@ -80,7 +69,6 @@
         android:text="BATERIA:"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/preco" />
-
     <TextView
         android:id="@+id/bateria_value"
         android:layout_width="wrap_content"
@@ -89,7 +77,6 @@
         android:text="500 kWh"
         app:layout_constraintStart_toEndOf="@id/bateria"
         app:layout_constraintTop_toTopOf="@id/bateria"/>
-
     <TextView
         android:id="@+id/potencia"
         android:layout_width="wrap_content"
@@ -99,7 +86,6 @@
         android:text="POTENCIA:"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/bateria" />
-
     <TextView
         android:id="@+id/potencia_value"
         android:layout_width="wrap_content"
@@ -108,7 +94,6 @@
         android:text="100cv"
         app:layout_constraintStart_toEndOf="@id/potencia"
         app:layout_constraintTop_toTopOf="@id/potencia"/>
-
     <TextView
         android:id="@+id/recarga"
         android:layout_width="wrap_content"
@@ -118,7 +103,6 @@
         android:text="RECARGA TOTAL:"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/potencia" />
-
     <TextView
         android:id="@+id/recarga_value"
         android:layout_width="wrap_content"
@@ -128,6 +112,51 @@
         app:layout_constraintStart_toEndOf="@id/recarga"
         app:layout_constraintTop_toTopOf="@id/recarga"/>
 
+    <EditText
+        android:id="@+id/preco_Kwh"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:ems="10"
+        android:hint="Preço Kwh"
+        android:inputType="numberDecimal"
+        android:maxLength="10"
+        android:maxLines="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recarga_value" />
+
+    <EditText
+        android:id="@+id/km_percorrido"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:hint="Km Percorrido"
+        android:inputType="numberDecimal"
+        android:maxLength="10"
+        android:maxLines="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/preco_Kwh" />
+
+    <Button
+        android:id="@+id/btt_calcular"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_marginTop="10dp"
+        android:text="Calcular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/km_percorrido" />
+
+    <TextView
+        android:id="@+id/tv_resultado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/btt_calcular"
+        app:layout_constraintTop_toBottomOf="@+id/btt_calcular"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
