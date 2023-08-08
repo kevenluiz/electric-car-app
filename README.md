@@ -1,7 +1,7 @@
 ## About the author
 
 
-I'm Kevin Luiz! I'm here to contribute my knowledge on this Android application using Kotlin.
+I'm Keven Luiz! I'm here to contribute my knowledge on this Android application using Kotlin.
 
 
 # electriccar-app
