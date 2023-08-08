@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">ElectriccarApp</string>
+    <string name="minha_segunda_activity">Minha segunda activity</string>
 
     <string-array name="cidades">
         <item>Campina Grande</item>
