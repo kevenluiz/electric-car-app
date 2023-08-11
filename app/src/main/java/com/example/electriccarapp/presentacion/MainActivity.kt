@@ -12,32 +12,50 @@ import android.widget.EditText
 import android.widget.ListView
 import android.widget.RadioGroup
 import android.widget.Switch
+import android.widget.TableLayout
 import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.widget.ViewPager2
 import com.example.electriccarapp.R
+import com.example.electriccarapp.deira.CarFactory
+import com.example.electriccarapp.presentacion.adapter.CarAdapter
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var btt_calcular: Button
-    lateinit var list_View: ListView
+    lateinit var lista_carros: RecyclerView
+    lateinit var tableLayout: TableLayout
+    lateinit var viewPager: ViewPager2
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d("Lifecycle", "Create")
         setContentView(R.layout.activity_main)
         seTupViews()
         setupListeners()
         setupList()
+        setupTabs()
     }
+
+
     fun seTupViews(){
+        tableLayout  = findViewById(R.id.tab_layout)
         btt_calcular = findViewById(R.id.btt_calcular)
-        list_View = findViewById(R.id.list_view)
+        lista_carros = findViewById(R.id.lista_carros)
+        viewPager = findViewById(R.id.vp_view_pager)
 
     }
 
     fun setupList(){
-        var dados = arrayOf(
-            "lollipop", "donut", "cupcake", "Gingeberd"
-        )
-        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, dados)
-        list_View.adapter = adapter
+        val adapter = CarAdapter(CarFactory.list)
+        lista_carros.adapter = adapter
+    }
+
+    fun setupTabs(){
+        val tabsAdapter = TabAdapter(this)
+        viewPager.adapter = tabsAdapter
+
+
     }
 
     fun setupListeners(){

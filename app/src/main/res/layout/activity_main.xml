@@ -1,10 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentacion.MainActivity">
+
+   <com.google.android.material.tabs.TabLayout
+       android:id="@+id/tab_layout"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_marginStart="16dp"
+       android:layout_marginEnd="16dp"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@id/Titulo">
+
+
+       <com.google.android.material.tabs.TabItem
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="Carros"/>
+
+
+       <com.google.android.material.tabs.TabItem
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="Favoritos"
+           />
+
+   </com.google.android.material.tabs.TabLayout>
+
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vp_view_pager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/tab_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+
     <TextView
         android:id="@+id/Titulo"
         android:layout_width="wrap_content"
@@ -16,139 +54,6 @@
         android:text="Electric Car"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
-    <TextView
-        android:id="@+id/tab_carros"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Carros"
-        android:layout_margin="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/Titulo"
-        android:textStyle="bold" />
-    <TextView
-        android:id="@+id/tab_favoritos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Favoritos"
-        app:layout_constraintStart_toEndOf="@id/tab_carros"
-        app:layout_constraintTop_toTopOf="@id/tab_carros"
-        android:layout_marginLeft="250dp"
-        android:textStyle="bold" />
-
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="50dp"
-        app:cardBackgroundColor="@color/green"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tab_favoritos">
-
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/content_card"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="165dp"
-                android:layout_height="152dp"
-                android:layout_marginStart="108dp"
-                android:layout_marginTop="20dp"
-                app:layout_constraintLeft_toLeftOf="@id/Titulo"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tab_carros"
-                app:srcCompat="@mipmap/ic_launcher_foreground" />
-
-            <TextView
-                android:id="@+id/preco"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/TextAppearance.AppCompat.Body2"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="4dp"
-                android:text="PREÇO:"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imageView" />
-            <TextView
-                android:id="@+id/preco_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/TextAppearance.AppCompat.Body1"
-                android:layout_marginStart="70dp"
-                android:layout_marginTop="4dp"
-                android:text="250.000,00 R$"
-                app:layout_constraintTop_toBottomOf="@id/imageView"
-                app:layout_constraintStart_toEndOf="@id/preco" />
-            <TextView
-                android:id="@+id/bateria"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/TextAppearance.AppCompat.Body2"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="4dp"
-                android:text="BATERIA:"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/preco" />
-            <TextView
-                android:id="@+id/bateria_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/TextAppearance.AppCompat.Body1"
-                android:layout_marginStart="60dp"
-                android:text="500 kWh"
-                app:layout_constraintStart_toEndOf="@id/bateria"
-                app:layout_constraintTop_toTopOf="@id/bateria"/>
-            <TextView
-                android:id="@+id/potencia"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/TextAppearance.AppCompat.Body2"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="4dp"
-                android:text="POTÊNCIA:"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/bateria" />
-            <TextView
-                android:id="@+id/potencia_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/TextAppearance.AppCompat.Body1"
-                android:layout_marginStart="48dp"
-                android:text="100cv"
-                app:layout_constraintStart_toEndOf="@id/potencia"
-                app:layout_constraintTop_toTopOf="@id/potencia"/>
-            <TextView
-                android:id="@+id/recarga"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/TextAppearance.AppCompat.Body2"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="4dp"
-                android:text="RECARGA TOTAL:"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/potencia" />
-            <TextView
-                android:id="@+id/recarga_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/TextAppearance.AppCompat.Body1"
-                android:layout_marginStart="7dp"
-                android:text="2 Horas"
-                app:layout_constraintStart_toEndOf="@id/recarga"
-                app:layout_constraintTop_toTopOf="@id/recarga"/>
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    </androidx.cardview.widget.CardView>
-
 
     <Button
         android:id="@+id/btt_calcular"
@@ -160,14 +65,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <ListView
-        android:id="@+id/list_view"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/lista_carros"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@+id/btt_calcular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card" />
+        app:layout_constraintTop_toBottomOf="@+id/tab_layout"
+        tools:listitem="@layout/carro_item"/>
 
 
 
