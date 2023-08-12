@@ -20,37 +20,26 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.electriccarapp.R
 import com.example.electriccarapp.deira.CarFactory
 import com.example.electriccarapp.presentacion.adapter.CarAdapter
+import com.google.android.material.tabs.TabLayout
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var btt_calcular: Button
-    lateinit var lista_carros: RecyclerView
-    lateinit var tableLayout: TableLayout
+    lateinit var tabLayout: TabLayout
     lateinit var viewPager: ViewPager2
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d("Lifecycle", "Create")
         setContentView(R.layout.activity_main)
         seTupViews()
-        setupListeners()
-        setupList()
         setupTabs()
     }
 
 
     fun seTupViews(){
-        tableLayout  = findViewById(R.id.tab_layout)
-        btt_calcular = findViewById(R.id.btt_calcular)
-        lista_carros = findViewById(R.id.lista_carros)
+        tabLayout  = findViewById(R.id.tab_layout)
         viewPager = findViewById(R.id.vp_view_pager)
 
     }
-
-    fun setupList(){
-        val adapter = CarAdapter(CarFactory.list)
-        lista_carros.adapter = adapter
-    }
-
     fun setupTabs(){
         val tabsAdapter = TabAdapter(this)
         viewPager.adapter = tabsAdapter
@@ -58,11 +47,32 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun setupListeners(){
-        btt_calcular.setOnClickListener {
-            startActivity(Intent(this, CalcularAutonomiaActivity::class.java))
 
-        }
+        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+
+                tab?.let {
+                    viewPager.currentItem = it.position
+                }
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+
+            }
+        })
+        viewPager.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback(){
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                tabLayout.getTabAt(position)?.select()
+            }
+        })
+
+
+
 
     }
 
