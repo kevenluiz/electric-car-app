@@ -1,17 +1,22 @@
 package com.example.electriccarapp.presentacion
 
 import android.content.Intent
+import android.os.AsyncTask
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.loader.content.AsyncTaskLoader
 import com.example.electriccarapp.R
+import java.net.HttpURLConnection
+import java.net.URL
 
 class CalcularAutonomiaActivity : AppCompatActivity() {
     lateinit var preco: EditText
     lateinit var kmPercorrido: EditText
-    lateinit var resultado : TextView
+    lateinit var resultado: TextView
     lateinit var btt_calcular: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +36,7 @@ class CalcularAutonomiaActivity : AppCompatActivity() {
 
     }
 
-    fun setupListeners(){
+    fun setupListeners() {
         btt_calcular.setOnClickListener {
 
             calcular()
@@ -39,7 +44,7 @@ class CalcularAutonomiaActivity : AppCompatActivity() {
         }
     }
 
-    fun calcular(){
+    fun calcular() {
         val preco = preco.text.toString().toFloat()
         val km = kmPercorrido.text.toString().toFloat()
         val result = preco / km
