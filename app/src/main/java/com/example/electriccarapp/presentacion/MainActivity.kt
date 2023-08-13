@@ -43,11 +43,6 @@ class MainActivity : AppCompatActivity() {
     fun setupTabs(){
         val tabsAdapter = TabAdapter(this)
         viewPager.adapter = tabsAdapter
-
-
-    }
-
-
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
             override fun onTabSelected(tab: TabLayout.Tab?) {
 
@@ -64,16 +59,17 @@ class MainActivity : AppCompatActivity() {
 
             }
         })
-        viewPager.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback(){
+        viewPager.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 tabLayout.getTabAt(position)?.select()
             }
+
         })
 
 
-
-
     }
+
+
 
 }
