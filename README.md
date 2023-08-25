@@ -1,4 +1,4 @@
-## About the author
+## Sobre mim;
 
 
 I'm Keven Luiz! I'm here to contribute my knowledge on this Android application using Kotlin.
